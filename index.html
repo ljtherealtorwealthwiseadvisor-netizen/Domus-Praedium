@@ -16,7 +16,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)
 }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '893476011239501');
+fbq('init', '893476011239501'); // ✅ updated pixel
 fbq('track', 'PageView');
 </script>
 
@@ -31,43 +31,85 @@ gtag('config', 'AW-11442413834');
 
 <style>
 body{margin:0;font-family:Arial;background:#000;color:#fff;}
-.hero{height:100vh;background:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;}
+
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80') center/cover;
+display:flex;align-items:center;justify-content:center;text-align:center;
+}
+
 .overlay{background:rgba(0,0,0,0.7);padding:40px;border-radius:10px;}
+
 .btn{padding:15px 25px;margin:10px;border:none;cursor:pointer;font-weight:bold;}
 .gold{background:gold;color:black;}
 .dark{background:#222;color:white;}
+
 .section{padding:60px 20px;text-align:center;}
+
 .grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+
 .card{background:#111;padding:10px;border-radius:12px;width:260px;}
 .card img{width:100%;height:170px;object-fit:cover;border-radius:10px;}
+
 input,select{padding:10px;margin:10px;width:260px;}
+
 .whatsapp{position:fixed;bottom:20px;right:20px;width:60px;cursor:pointer;}
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
 <div class="overlay">
 <h1>Find the Right Property Investment</h1>
 <p>Property • Strategy • Legacy</p>
+
 <button class="btn gold" onclick="scrollToForm()">Schedule Viewing</button>
 <button class="btn dark" onclick="openWhatsApp()">Speak with an Advisor</button>
 </div>
 </div>
 
+<!-- INTERIOR IMAGES -->
 <div class="section">
 <h2>Prime Locations</h2>
+
 <div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"><p>Makati CBD</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80"><p>BGC Taguig</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80"><p>Ortigas CBD</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80"><p>Pasig City</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800&q=80"><p>Bay Area Pasay</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"><p>Quezon City</p></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80">
+<p>Makati CBD</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80">
+<p>BGC Taguig</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80">
+<p>Ortigas CBD</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80">
+<p>Pasig City</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800&q=80">
+<p>Bay Area Pasay</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80">
+<p>Quezon City</p>
+</div>
+
 </div>
 </div>
 
+<!-- FORM -->
 <div class="section" id="form">
 <h2>Schedule Your Private Viewing</h2>
 
@@ -107,44 +149,37 @@ input,select{padding:10px;margin:10px;width:260px;}
 <option>20M+</option>
 </select><br>
 
-<select id="schedule_time" required>
-<option value="">When do you want to schedule viewing?</option>
-<option>ASAP</option>
-<option>Within 1 Week</option>
-<option>Within 1 Month</option>
-<option>Just Exploring</option>
-</select><br>
-
-<select id="buy_time" required>
-<option value="">When do you plan to buy?</option>
-<option>Within 1 Month</option>
-<option>1-3 Months</option>
-<option>3-6 Months</option>
-<option>6+ Months</option>
-</select><br>
-
 <button class="btn gold">Submit</button>
 </form>
 </div>
 
+<!-- WHATSAPP FLOAT -->
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
 class="whatsapp"
 onclick="openWhatsApp()">
 
 <script>
+
+/* 👉 WHATSAPP CLICK = CONTACT EVENT */
 function openWhatsApp(){
+
+fbq('track', 'Contact'); // ✅ NEW (advisor + floating button)
+
 window.location.href="https://api.whatsapp.com/send?phone=639690134227";
 }
 
+/* 👉 SCROLL TO FORM */
 function scrollToForm(){
 document.getElementById("form").scrollIntoView({behavior:'smooth'});
 }
 
+/* 👉 FORM SUBMIT */
 function submitForm(e){
 e.preventDefault();
 
 fbq('track','Lead');
 fbq('trackCustom','Schedule');
+
 gtag('event','conversion', {'send_to':'AW-11442413834'});
 
 let name=document.getElementById("name").value;
@@ -153,23 +188,18 @@ let type=document.getElementById("type").value;
 let status=document.getElementById("status").value;
 let location=document.getElementById("location").value;
 let budget=document.getElementById("budget").value;
-let schedule=document.getElementById("schedule_time").value;
-let buy=document.getElementById("buy_time").value;
 
 let msg = `Hi! I'm interested.
-
 Name: ${name}
 Phone: ${phone}
 Type: ${type}
 Status: ${status}
 Location: ${location}
-Budget: ${budget}
-
-Viewing Schedule: ${schedule}
-Buying Timeline: ${buy}`;
+Budget: ${budget}`;
 
 window.location.href="https://api.whatsapp.com/send?phone=639690134227&text="+encodeURIComponent(msg);
 }
+
 </script>
 
 </body>
