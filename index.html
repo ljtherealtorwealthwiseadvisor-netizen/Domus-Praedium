@@ -3,137 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DOMUS PRAEDIUM</title>
 
 <!-- META PIXEL -->
 <script>
-!function(f,b,e,v,n,t,s){
-if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)
-}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
 fbq('init', '893476011239501');
 fbq('track', 'PageView');
 </script>
 
 <style>
-body {
-  background: black;
-  color: white;
-  font-family: Arial;
-  text-align: center;
+
+body{
+    margin:0;
+    padding:0;
+    background:black;
+    font-family:Arial, sans-serif;
+    color:white;
 }
 
-input, select {
-  width: 80%;
-  padding: 12px;
-  margin: 10px;
-  border: none;
+/* FORM CONTAINER */
+.form-container{
+    width:90%;
+    max-width:700px;
+    margin:40px auto;
+    text-align:center;
 }
 
-button {
-  background: gold;
-  border: none;
-  padding: 12px 30px;
-  cursor: pointer;
+h1{
+    font-size:48px;
+    margin-bottom:40px;
 }
 
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  cursor: pointer;
+/* INPUTS */
+input,
+select{
+    width:100%;
+    padding:18px;
+    margin:12px 0;
+    font-size:16px;
+    border:none;
+    box-sizing:border-box;
 }
+
+/* BUTTONS */
+.btn-gold{
+    background:gold;
+    color:black;
+    border:none;
+    padding:15px 40px;
+    margin-top:25px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.btn-gold:hover{
+    opacity:0.9;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+    position:fixed;
+    width:65px;
+    height:65px;
+    bottom:25px;
+    right:25px;
+    z-index:999;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    h1{
+        font-size:34px;
+    }
+
+    input,
+    select{
+        padding:16px;
+    }
+
+    .btn-gold{
+        width:100%;
+    }
+
+    .whatsapp{
+        width:58px;
+        height:58px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="form-container">
+
 <h1>Schedule Your Private Viewing</h1>
 
-<form id="form">
+<form id="leadForm">
 
-<input type="text" placeholder="Full Name" required><br>
-<input type="text" placeholder="Phone Number" required><br>
+<input type="text" placeholder="Full Name" required>
 
-<select required>
-  <option value="">Property Type</option>
-  <option>Condo</option>
-  <option>House & Lot</option>
-  <option>Lot Only</option>
-</select><br>
+<input type="text" placeholder="Phone Number" required>
 
 <select required>
-  <option value="">Project Status</option>
-  <option>Pre-selling</option>
-  <option>Ready for Occupancy</option>
-</select><br>
+<option value="">Property Type</option>
+<option>Condominium</option>
+<option>House & Lot</option>
+<option>Townhouse</option>
+<option>Lot Only</option>
+<option>Commercial Property</option>
+</select>
 
 <select required>
-  <option value="">Preferred Location</option>
-  <option>Metro Manila</option>
-  <option>Cavite</option>
-  <option>Laguna</option>
-</select><br>
+<option value="">Project Status</option>
+<option>Pre-selling</option>
+<option>Ready for Occupancy</option>
+<option>Resale</option>
+</select>
 
 <select required>
-  <option value="">Budget Range</option>
-  <option>3M - 5M</option>
-  <option>5M - 10M</option>
-  <option>10M+</option>
-</select><br>
-
-<!-- ✅ RESTORED FIELDS -->
-<select required>
-  <option value="">Preferred Viewing Date</option>
-  <option>Within 7 days</option>
-  <option>Within 1 month</option>
-  <option>Within 3 months</option>
-  <option>Just exploring</option>
-</select><br>
+<option value="">Preferred Location</option>
+<option>Makati</option>
+<option>BGC</option>
+<option>Pasig</option>
+<option>Quezon City</option>
+<option>Taguig</option>
+<option>Cebu</option>
+<option>Davao</option>
+</select>
 
 <select required>
-  <option value="">Buying Timeline</option>
-  <option>Ready now</option>
-  <option>1-3 months</option>
-  <option>3-6 months</option>
-  <option>6-12 months</option>
-  <option>Not sure yet</option>
-</select><br>
+<option value="">Budget Range</option>
+<option>1M - 3M</option>
+<option>3M - 5M</option>
+<option>5M - 8M</option>
+<option>8M - 12M</option>
+<option>12M - 20M</option>
+<option>20M+</option>
+</select>
 
-<button type="submit">Submit</button>
+<select required>
+<option value="">Preferred Viewing Date</option>
+<option>This Week</option>
+<option>Next Week</option>
+<option>This Month</option>
+<option>Next Month</option>
+</select>
+
+<select required>
+<option value="">Buying Timeline</option>
+<option>ASAP</option>
+<option>Within 1 Month</option>
+<option>Within 3 Months</option>
+<option>Within 6 Months</option>
+<option>Just Exploring</option>
+</select>
+
+<button class="btn-gold" type="submit">
+Submit
+</button>
 
 </form>
 
+</div>
+
 <!-- WHATSAPP FLOAT -->
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
 class="whatsapp"
-onclick="openWhatsApp()">
+onclick="openWhatsApp()"
+>
 
 <script>
 
-/* WHATSAPP CLICK = CONTACT */
+/* WHATSAPP CLICK = CONTACT EVENT */
 function openWhatsApp(){
-  fbq('track', 'Contact');
 
-  setTimeout(function(){
-    window.location.href="https://api.whatsapp.com/send?phone=639690134227";
-  }, 500);
+    fbq('track', 'Contact');
+
+    setTimeout(function(){
+
+        window.location.href =
+        "https://api.whatsapp.com/send?phone=639690134227";
+
+    }, 500);
 }
 
 /* FORM SUBMIT */
-document.getElementById("form").addEventListener("submit", function(e){
-  e.preventDefault();
+document.getElementById("leadForm")
+.addEventListener("submit", function(e){
 
-  fbq('track', 'Lead');
-  fbq('track', 'Schedule');
+    e.preventDefault();
 
-  alert("Submitted! We will contact you shortly.");
+    /* LEAD EVENT */
+    fbq('track', 'Lead');
+
+    /* SCHEDULE EVENT */
+    fbq('trackCustom', 'Schedule');
+
+    alert("Thank you! Our property advisor will contact you shortly.");
+
+    this.reset();
 });
 
 </script>
