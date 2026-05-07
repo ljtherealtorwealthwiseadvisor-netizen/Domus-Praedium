@@ -1,226 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DOMUS PRAEDIUM</title>
-
-<!-- META PIXEL -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '893476011239501');
-fbq('track', 'PageView');
-</script>
-
-<style>
-
-body{
-    margin:0;
-    padding:0;
-    background:black;
-    font-family:Arial, sans-serif;
-    color:white;
-}
-
-/* FORM CONTAINER */
-.form-container{
-    width:90%;
-    max-width:700px;
-    margin:40px auto;
-    text-align:center;
-}
-
-h1{
-    font-size:48px;
-    margin-bottom:40px;
-}
-
-/* INPUTS */
-input,
-select{
-    width:100%;
-    padding:18px;
-    margin:12px 0;
-    font-size:16px;
-    border:none;
-    box-sizing:border-box;
-}
-
-/* BUTTONS */
-.btn-gold{
-    background:gold;
-    color:black;
-    border:none;
-    padding:15px 40px;
-    margin-top:25px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:18px;
-}
-
-.btn-gold:hover{
-    opacity:0.9;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp{
-    position:fixed;
-    width:65px;
-    height:65px;
-    bottom:25px;
-    right:25px;
-    z-index:999;
-    cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-    h1{
-        font-size:34px;
-    }
-
-    input,
-    select{
-        padding:16px;
-    }
-
-    .btn-gold{
-        width:100%;
-    }
-
-    .whatsapp{
-        width:58px;
-        height:58px;
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="form-container">
-
-<h1>Schedule Your Private Viewing</h1>
-
-<form id="leadForm">
-
-<input type="text" placeholder="Full Name" required>
-
-<input type="text" placeholder="Phone Number" required>
-
-<select required>
-<option value="">Property Type</option>
-<option>Condominium</option>
-<option>House & Lot</option>
-<option>Townhouse</option>
-<option>Lot Only</option>
-<option>Commercial Property</option>
-</select>
-
-<select required>
-<option value="">Project Status</option>
-<option>Pre-selling</option>
-<option>Ready for Occupancy</option>
-<option>Resale</option>
-</select>
-
-<select required>
-<option value="">Preferred Location</option>
-<option>Makati</option>
-<option>BGC</option>
-<option>Pasig</option>
-<option>Quezon City</option>
-<option>Taguig</option>
-<option>Cebu</option>
-<option>Davao</option>
-</select>
-
-<select required>
-<option value="">Budget Range</option>
-<option>1M - 3M</option>
-<option>3M - 5M</option>
-<option>5M - 8M</option>
-<option>8M - 12M</option>
-<option>12M - 20M</option>
-<option>20M+</option>
-</select>
-
-<select required>
-<option value="">Preferred Viewing Date</option>
-<option>This Week</option>
-<option>Next Week</option>
-<option>This Month</option>
-<option>Next Month</option>
-</select>
-
-<select required>
-<option value="">Buying Timeline</option>
-<option>ASAP</option>
-<option>Within 1 Month</option>
-<option>Within 3 Months</option>
-<option>Within 6 Months</option>
-<option>Just Exploring</option>
-</select>
-
-<button class="btn-gold" type="submit">
-Submit
-</button>
-
-</form>
-
-</div>
-
-<!-- WHATSAPP FLOAT -->
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-class="whatsapp"
-onclick="openWhatsApp()"
->
-
 <script>
 
-/* WHATSAPP CLICK = CONTACT EVENT */
+/* WHATSAPP BUTTON */
 function openWhatsApp(){
 
-    fbq('track', 'Contact');
+fbq('track','Contact');
 
-    setTimeout(function(){
+/* DELAY PARA MATRACK MUNA */
+setTimeout(function(){
 
-        window.location.href =
-        "https://api.whatsapp.com/send?phone=639690134227";
+window.location.href="https://api.whatsapp.com/send?phone=639690134227";
 
-    }, 500);
+},500);
+
+}
+
+/* SCROLL */
+function scrollToForm(){
+document.getElementById("form").scrollIntoView({behavior:'smooth'});
 }
 
 /* FORM SUBMIT */
-document.getElementById("leadForm")
-.addEventListener("submit", function(e){
+function submitForm(e){
 
-    e.preventDefault();
+e.preventDefault();
 
-    /* LEAD EVENT */
-    fbq('track', 'Lead');
+/* META EVENTS */
+fbq('track','Lead');
+fbq('trackCustom','Schedule');
 
-    /* SCHEDULE EVENT */
-    fbq('trackCustom', 'Schedule');
+/* GOOGLE CONVERSION */
+gtag('event','conversion', {'send_to':'AW-11442413834'});
 
-    alert("Thank you! Our property advisor will contact you shortly.");
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let type=document.getElementById("type").value;
+let status=document.getElementById("status").value;
+let location=document.getElementById("location").value;
+let budget=document.getElementById("budget").value;
+let schedule=document.getElementById("schedule_time").value;
+let buy=document.getElementById("buy_time").value;
 
-    this.reset();
-});
+let msg = `Hi! I'm interested.
+
+Name: ${name}
+Phone: ${phone}
+Type: ${type}
+Status: ${status}
+Location: ${location}
+Budget: ${budget}
+
+Viewing Schedule: ${schedule}
+Buying Timeline: ${buy}`;
+
+/* DELAY PARA MATRACK EVENTS */
+setTimeout(function(){
+
+window.location.href=
+"https://api.whatsapp.com/send?phone=639690134227&text="
++encodeURIComponent(msg);
+
+},500);
+
+}
 
 </script>
-
-</body>
-</html>
